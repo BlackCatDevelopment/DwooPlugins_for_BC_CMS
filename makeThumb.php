@@ -47,7 +47,7 @@ require_once CAT_PATH.'/framework/functions.php';
 function Dwoo_Plugin_makeThumb(Dwoo $dwoo, $file='', $prefix='', $width=200, $height=300, $quality=90) {
 	if ( $file == '' ) return false;
 
-	$file			= str_replace(CAT_URL, CAT_PATH, $file);
+	$file			= str_replace( CAT_URL, CAT_PATH, $file );
 	$file			= strpos( $file, CAT_PATH ) === false ?
 							CAT_PATH . $file :
 							$file;
@@ -68,7 +68,7 @@ function Dwoo_Plugin_makeThumb(Dwoo $dwoo, $file='', $prefix='', $width=200, $he
 				$prefix . basename($file, '.jpg') . '_' . $width . '_' . $height,
 				CAT_PATH . MEDIA_DIRECTORY . '/temp/media/' ) )
 			return $new_url;
-		return false;
+		return str_replace( CAT_PATH, CAT_URL, $file );
 	}
 	return $new_url;
 	// end makeThumb()
